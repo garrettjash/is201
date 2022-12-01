@@ -1,0 +1,101 @@
+/* styles for my resume  */
+
+body {
+    background-image: url("https://media.istockphoto.com/id/1036808928/vector/abstract-defocused-star-light-particles-floating-bokeh-animation.jpg?s=612x612&w=0&k=20&c=4em9nfve2AOBTvcBt72xZR-Jm9EZdazz0qzDPQh5_lQ=");
+    background-size: 2000px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.resumefont {
+    text-transform: none;
+    font-weight: bold;
+    font-size: 23pt;
+}
+
+.normal {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: none;
+    font-size: 20pt;
+}
+
+.box {
+    border: 1px; 
+    /* border: solid #111111; */
+    position: absolute;
+}
+
+.navbar {
+    top: 50px;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+    padding: 30px;
+    background-color: rgba(163, 59, 59, 0.856);
+    font-size: xx-large;
+}
+
+.body {
+    top: 223px;
+    left: 50px;
+    right: 50px;
+    bottom: 0px;
+    height: 675px;
+}
+
+a:visited {
+    color: whitesmoke;
+}
+
+a {
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+.tableau {
+    top: 1078px;
+    right: 0px;
+    left: 0px;
+    height: 642px;
+    padding-left: 45px;
+    padding-right: 45px;
+}
+
+.tabheader {
+    top: 1000px;
+    right: 0px;
+    left: 0px;
+    /* padding: 90px; */
+}
+
+.ytvid{
+    top: 1800px;
+    right: 0px;
+    left: 0px;
+    height: 1000px;
+}
+
+.vidpad{
+    padding: 50px;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    text-align: center;
+}
+
+.profilepic{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 50%;
+}
+
+.guide {
+    text-align: center;
+    margin-top: 175px;
+    font-size: larger;
+    color: red;
+}
