@@ -1,0 +1,61 @@
+Option Explicit
+
+' =========================
+' 09 - STRING MANIPULATIONS
+' =========================
+' VBA includes a lot of functions that can make it easy to
+' change how strings are formatted or find certain things
+' within strings
+
+
+' 1. BASIC STRING MANIPULATIONS
+' --------------------------
+' In sheet 09-1, loop through each cell in column A2 down.
+' In the columns to the right, apply:
+'   UCase, LCase, Right, Left, Replace
+
+' DO
+Sub string_manipulations()
+Dim current_cell As Range
+
+Sheets("09-1").Activate
+
+For Each current_cell In Range("A2", Range("A2").End(xlDown))
+    current_cell.Offset(0, 1).Value = UCase(current_cell.Value)
+
+    ' THEY DO
+    current_cell.Offset(0, 2).Value = LCase(current_cell.Value)
+    current_cell.Offset(0, 3).Value = Right(current_cell.Value, 3)
+    current_cell.Offset(0, 4).Value = Left(current_cell.Value, 3)
+    current_cell.Offset(0, 5).Value = Replace(current_cell.Value, "e", "eee")
+
+Next
+End Sub
+
+
+' 2. INSTR
+' --------
+' In Sheet 09-2, loop through each cell in column A2 down.
+' In column B, it lists each person's sports preferences
+' but in an inconsistent structure. Use InStr() to check
+' whether a person likes basketball or not.
+' If a string is found in the other string InStr will return
+' the location of the match. If no match is found, it will
+' return 0.
+' If the person does have basketball in their string,
+' put "<name> likes basketball" in column C. Otherwise,
+' leave column C blank.
+
+Sub instr_basketball()
+Dim current_cell As Range
+Sheets("09-2").Activate
+For Each current_cell In Range("B2", Range("B2").End(xlDown))
+    'current_cell.Activate
+    If InStr(LCase(current_cell.Value), "basketball") <> 0 Then
+    
+        current_cell.Offset(0, 1).Value = current_cell.Offset(0, -1).Value & " likes basketball!"
+    End If
+Next
+
+End Sub
+
