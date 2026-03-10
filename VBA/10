@@ -1,0 +1,74 @@
+Option Explicit
+
+' ===========
+' COMBINING IT ALL
+' ===========
+' This is just meant to have some examples that have you putting the
+' previously learned principles all together
+
+
+' 1 - MOVIE SELECTOR
+' ---------------
+' In sheet 10-1 you should see some mock movie data. Let's say
+' you want to make a list of potential movies to watch in 2 different
+' categories:
+' Category 1: big budget space action movies:
+'       Genre contains action
+'       Budget 200,000,000 or more
+'       Description contains the word space
+' Category 2: family friendly comedies
+'       Genre contains comedy
+'       Rating is G
+'       Length is under 90 minutes
+
+' If a movie is in category 1, place its title in 10-2, with a summary sentence
+' in the column next to it of "Big Budget space action movie!"
+' If a movie is in category 2, place its title in 10-2 with a summary sentence
+' in the column next to it of "Family friendly short comedy!"
+
+Sub movie_selector()
+' DO
+Dim current_cell as Range
+Dim is_action as Boolean, is_comedy as Boolean, is_space as Boolean
+Dim display_row as Integer, title as String
+
+''''''''''''Let them do
+Dim budget as Currency, rating as String, length as Integer
+
+display_row = 2
+
+Sheets("10-1").Activate
+
+For Each current_cell In Range("A2", Range("A2").End(xlDown))
+
+    'DO
+    title = current_cell.Value
+
+    ''; THEY DO
+    budget = current_cell.Offset(0,4).Value
+    rating = current_cell.Offset(0,3).Value
+    length = current_cell.Offset(0,6).Value
+
+    'DO
+    is_action = InStr(current_cell.Offset(0,1).Value, "Action")
+
+    '' THEY DO
+    is_comedy = InStr(current_cell.Offset(0,1).Value, "Comedy")
+    is_space = InStr(current_cell.Offset(0,7).Value, "space")
+
+    'DO
+   ' Category 1
+    If is_action and budget >= 200000000 And is_space Then
+        Sheets("10-2").Cells(display_row, 1) = title
+        Sheets("10-2").Cells(display_row, 2) = "Big Budget space action movie!"
+        display_row = display_row + 1
+
+    'THEY DO
+   ' Category 2
+    ElseIf is_comedy And rating = "G" And length < 90 Then
+        Sheets("10-2").Cells(display_row, 1) = title
+        Sheets("10-2").Cells(display_row, 2) = "Family friendly short comedy!"
+        display_row = display_row + 1
+    End if 
+Next
+End Sub
